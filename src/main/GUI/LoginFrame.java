@@ -1,3 +1,8 @@
+package main.GUI;
+
+import main.Facade.GestaoAcademicaFacade;
+import main.Model.Usuario;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

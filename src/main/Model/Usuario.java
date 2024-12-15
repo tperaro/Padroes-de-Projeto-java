@@ -1,3 +1,5 @@
+package main.Model;
+
 public abstract class Usuario {
     private String username;
     private String senha;

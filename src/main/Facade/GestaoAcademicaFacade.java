@@ -1,3 +1,8 @@
+package main.Facade;
+
+import main.Service.UsuarioService;
+import main.Model.Usuario;
+
 public class GestaoAcademicaFacade {
     private UsuarioService usuarioService;
 
