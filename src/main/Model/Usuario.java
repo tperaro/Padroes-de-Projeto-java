@@ -1,4 +1,4 @@
-public abstract class Usuario {
+public class Usuario {
     private String username;
     private String senha;
     private String tipo; // Ex: "COORDENACAO", "SECRETARIA", "DOCENTE"

@@ -1,5 +1,5 @@
-public class UsuarioSistema extends Usuario {
-    public UsuarioSistema(String username, String senha, String tipo) {
+public class UsuarioSystem extends Usuario {
+    public UsuarioSystem(String username, String senha, String tipo) {
         super(username, senha, tipo);
     }
 
