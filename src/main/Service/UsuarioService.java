@@ -1,19 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class UsuarioService {
 
-    private UsuarioRepository usuarioRepository;
+    private List<Usuario> usuarios;
 
-    // Construtor da classe UsuarioService
-    public UsuarioService(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
+    public UsuarioService() {
+        usuarios = new ArrayList<>();
+        // Adicionando usuários de exemplo (simula um "banco de dados")
+        usuarios.add(new Usuario("admin", "1234", "COORDENACAO"));
+        usuarios.add(new Usuario("secretaria", "1234", "SECRETARIA"));
+        usuarios.add(new Usuario("professor", "1234", "DOCENTE"));
     }
 
-    // Método login que valida usuário e senha
-    public Usuario login(String username, String senha) {
-        for (Usuario usuario : usuarioRepository.getUsuarios()) {
-            if (usuario.getUsername().equals(username) && usuario.getSenha().equals(senha)) {
-                return usuario; // Retorna o usuário caso encontre a combinação correta
+    // Método para validar o login
+    public Usuario validarLogin(String username, String senha) {
+        for (Usuario u : usuarios) {
+            if (u.getUsername().equals(username) && u.getSenha().equals(senha)) {
+                return u; // Usuário encontrado e validado
             }
         }
-        return null; // Retorna null caso não encontre
+        return null; // Credenciais inválidas
     }
 }

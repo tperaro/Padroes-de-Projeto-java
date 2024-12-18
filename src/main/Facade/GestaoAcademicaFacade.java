@@ -1,11 +1,12 @@
 public class GestaoAcademicaFacade {
-    private UsuarioService usuarioService;
+    private UsuarioService loginService;
 
-    public GestaoAcademicaFacade(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
+    public GestaoAcademicaFacade() {
+        loginService = new UsuarioService();
     }
 
+    // Método para efetuar login
     public Usuario efetuarLogin(String username, String senha) {
-        return usuarioService.login(username, senha);
+        return loginService.validarLogin(username, senha);
     }
 }
