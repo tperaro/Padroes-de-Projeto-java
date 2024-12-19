@@ -1,4 +1,6 @@
-public class Usuario { //usuario nao pode ser classe abstrata, pois não teria como instanciar um tipo de abstract usuario
+package Main.Model;
+
+public class Usuario {
     private String username;
     private String senha;
     private String tipo; // Ex: "COORDENACAO", "SECRETARIA", "DOCENTE"

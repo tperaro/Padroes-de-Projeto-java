@@ -1,4 +1,5 @@
-import Model.Usuario;
+package Main.Repository;
+import Main.Model.Usuario;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

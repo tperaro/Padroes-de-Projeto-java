@@ -1,4 +1,8 @@
+package LoginFrame;
 import javax.swing.*;
+
+import GestaoAcademicaFacade.GestaoAcademicaFacade;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

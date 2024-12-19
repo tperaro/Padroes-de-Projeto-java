@@ -1,3 +1,5 @@
+package Main.Model;
+
 public class CoordenacaoUser extends Usuario {
     public CoordenacaoUser(String username, String senha) {
         super(username, senha, "COORDENACAO");
