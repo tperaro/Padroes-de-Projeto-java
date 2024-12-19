@@ -34,17 +34,34 @@ public class DisciplinaRepository {
             e.printStackTrace();
         }
     }
-
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
-
+    
     public Disciplina buscarPorId(int id) {
         for (Disciplina disc : disciplinas) {
             if (disc.getId() == id) {
                 return disc;
             }
         }
-        return null;
+        return null; // Retorna null se a disciplina não for encontrada
     }
+
+    
+    public void salvarOuAtualizarDisciplina(Disciplina disciplina) {
+        if (disciplina == null) {
+            throw new IllegalArgumentException("Disciplina inválida");
+        }
+
+        Disciplina existente = buscarPorId(disciplina.getId());
+        if (existente != null) {
+            // Atualizar disciplina existente
+            existente.put("nome", disciplina.getNome());
+            existente.put("docenteResponsavelId", disciplina.getDocenteResponsavelId());
+            existente.put("descricao", disciplina.getDescricao());
+            existente.put("horario", disciplina.getHorario());
+            existente.put("capacidadeMaxima", disciplina.getCapacidadeMaxima());
+        } else {
+            // Adicionar nova disciplina
+            disciplinas.add(disciplina);
+        }
+    }
+
 }

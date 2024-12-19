@@ -8,7 +8,7 @@ import Main.Memento.AlunoMemento;
 import Main.Model.Matricula;
 
 public class DisciplinaService {
-    private Disciplina disciplinaRepository;
+    private DisciplinaRepository disciplinaRepository;
     private MatriculaRepository matriculaRepository;
     private AlunoService alunoService;
 
@@ -19,13 +19,15 @@ public class DisciplinaService {
         this.matriculaRepository = matriculaRepository;
         this.alunoService = alunoService;
     }
+    
+    
 
     public void matricularAlunoEmDisciplina(int alunoId, int disciplinaId) {
         Disciplina d = disciplinaRepository.buscarPorId(disciplinaId);
         if (d == null) {
             throw new IllegalArgumentException("Disciplina não encontrada");
         }
-
+        
         // Criar matrícula
         int novaMatriculaId = matriculaRepository.gerarNovoId();
         Matricula m = new Matricula(novaMatriculaId, alunoId, disciplinaId, 0.0);
@@ -34,7 +36,7 @@ public class DisciplinaService {
         // Notificar observadores da disciplina (se for relevante após matrícula)
         d.notificarObservadores();
     }
-
+    
     public void alterarNota(int alunoId, int disciplinaId, double novaNota) {
         Disciplina d = disciplinaRepository.buscarPorId(disciplinaId);
         if (d == null) {
@@ -57,7 +59,7 @@ public class DisciplinaService {
 
         // Alterar a nota
         mat.setNota(novaNota);
-        matriculaRepository.salvar(mat);
+        matriculaRepository.salvarOuAtualizarMatricula(mat);
 
         // Notificar Observers da disciplina
         d.notificarObservadores();

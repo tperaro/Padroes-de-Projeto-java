@@ -2,6 +2,7 @@ package LoginFrame;
 import javax.swing.*;
 
 import GestaoAcademicaFacade.GestaoAcademicaFacade;
+import Main.Model.Usuario;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

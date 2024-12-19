@@ -1,5 +1,9 @@
 package Main.Service;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 import Main.Model.CoordenacaoUser;
 import Main.Model.UsuarioSystem;
 import Main.Repository.UsuarioRepository;
@@ -15,6 +19,13 @@ public class UsuarioService {
      * Verifica credenciais do usuário. Se corretas, retorna instância de Usuario (CoordenacaoUser ou UsuarioSistema).
      * Caso contrário, retorna null.
      */
+    /**
+     * Salva ou atualiza um único usuário no arquivo.
+     */
+    /**
+     * Salva ou atualiza um único usuário no arquivo.
+     */
+
     public Usuario login(String username, String senhaDigitada) {
         String[] dados = usuarioRepository.buscarPorUsername(username);
         if (dados != null) {
@@ -32,4 +43,10 @@ public class UsuarioService {
         }
         return null;
     }
+    public void salvarOuAtualizarUsuario(Usuario usuario) {
+        // Passa o objeto Usuario diretamente para o repositório
+        usuarioRepository.salvarOuAtualizarUsuario(usuario);
+    }
+
+    
 }

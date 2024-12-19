@@ -22,4 +22,15 @@ public class Docente {
     public String getEspecialidade() {
         return especialidade;
     }
+
+	public void setNome(String nome) {
+		// TODO Auto-generated method stub
+		this.nome = nome;
+	}
+	
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
+
+
 }

@@ -21,10 +21,10 @@ public class GestaoAcademicaFacade {
     public GestaoAcademicaFacade(
             UsuarioService usuarioService, AlunoRepository alunoRepository, DocenteRepository docenteRepository, DisciplinaRepository disciplinaRepository, MatriculaRepository matriculaRepository) {
         this.usuarioService = usuarioService;
-        this.alunoRepository = this.alunoRepository;
-        this.docenteRepository = this.docenteRepository;
-        this.disciplinaRepository = this.disciplinaRepository;
-        this.matriculaRepository = this.matriculaRepository;
+        this.alunoRepository = alunoRepository;
+        this.docenteRepository = docenteRepository;
+        this.disciplinaRepository = disciplinaRepository;
+        this.matriculaRepository = matriculaRepository;
     }
 
     public Usuario efetuarLogin(String username, String senha) {

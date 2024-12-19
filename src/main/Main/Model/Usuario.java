@@ -21,4 +21,13 @@ public class Usuario {
     public String getTipo() {
         return tipo;
     }
+	public void setSenha(String senha) {
+		// TODO Auto-generated method stub
+		this.senha = senha;
+		
+	}
+	
+	public void setTipo (String tipo) {
+		this.tipo = tipo;
+	}
 }

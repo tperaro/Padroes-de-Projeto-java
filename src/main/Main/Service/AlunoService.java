@@ -12,7 +12,7 @@ import java.util.Map;
 public class AlunoService {
     private AlunoRepository alunoRepository;
     private MatriculaRepository matriculaRepository;
-    private CadastroCaretaker caretaker;
+    public CadastroCaretaker caretaker; //verificar se pode deixar public!
 
     public AlunoService(AlunoRepository alunoRepository, MatriculaRepository matriculaRepository, CadastroCaretaker caretaker) {
         this.alunoRepository = alunoRepository;
@@ -31,7 +31,7 @@ public class AlunoService {
         Aluno aluno = new Aluno(novoId, nome, endereco);
 
         // Salvar aluno no repositório (arquivo)
-        alunoRepository.salvar(aluno);
+        alunoRepository.salvarOuAtualizarAluno(aluno);
 
         // Criar Memento inicial do estado do aluno (no momento sem notas)
         Map<Integer, Double> notasVazias = new HashMap<>();
@@ -53,7 +53,7 @@ public class AlunoService {
                 // mas isso dependeria da lógica de como as notas estão armazenadas.
 
                 // Atualizar o repositório
-                alunoRepository.salvar(aluno);
+                alunoRepository.salvarOuAtualizarAluno(aluno);
             }
         }
     }

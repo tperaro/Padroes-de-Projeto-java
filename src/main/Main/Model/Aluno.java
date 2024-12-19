@@ -22,4 +22,17 @@ public class Aluno {
     public String getEndereco() {
         return endereco;
     }
+
+	public void setEndereco(String endereco) {
+		// TODO Auto-generated method stub
+		this.endereco = endereco;
+		
+	}
+
+	public void setNome(String nome) {
+		// TODO Auto-generated method stub
+		this.nome = nome;
+		
+	}
+	
 }

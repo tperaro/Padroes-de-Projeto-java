@@ -28,4 +28,19 @@ public class Matricula {
     public double getNota() {
         return nota;
     }
+
+	public void setAlunoId(int alunoId) {
+		// TODO Auto-generated method stub
+		this.alunoId = alunoId;
+	}
+	
+	public void setDisciplinaId(int disciplina){
+		this.disciplinaId = disciplina;
+	
+	}
+	
+	public void setNota(double nota) {
+		this.nota = nota;
+	}
+	
 }
