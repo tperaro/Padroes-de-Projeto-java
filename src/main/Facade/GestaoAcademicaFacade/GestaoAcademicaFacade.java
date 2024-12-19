@@ -33,11 +33,8 @@ public class GestaoAcademicaFacade {
         this.docenteRepository = docenteRepository;
         this.disciplinaRepository = disciplinaRepository;
         this.matriculaRepository = matriculaRepository;
-<<<<<<< HEAD
-=======
         this.alunoService = alunoService;
         this.disciplinaService = disciplinaService;
->>>>>>> 44790cdd19814bed3389b553bb6a8218001d251c
     }
 
     public Usuario efetuarLogin(String username, String senha) {
