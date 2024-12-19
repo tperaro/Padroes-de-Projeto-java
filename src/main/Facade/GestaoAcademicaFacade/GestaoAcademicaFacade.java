@@ -15,16 +15,26 @@ public class GestaoAcademicaFacade {
     private DocenteRepository docenteRepository;
     private DisciplinaRepository disciplinaRepository;
     private MatriculaRepository matriculaRepository;
-    private UsuarioService usuarioService; // Da etapa anterior
+    private UsuarioService usuarioService;
     private AlunoService alunoService;
     private DisciplinaService disciplinaService;
+
     public GestaoAcademicaFacade(
-            UsuarioService usuarioService, AlunoRepository alunoRepository, DocenteRepository docenteRepository, DisciplinaRepository disciplinaRepository, MatriculaRepository matriculaRepository) {
+            UsuarioService usuarioService,
+            AlunoRepository alunoRepository,
+            DocenteRepository docenteRepository,
+            DisciplinaRepository disciplinaRepository,
+            MatriculaRepository matriculaRepository,
+            AlunoService alunoService,
+            DisciplinaService disciplinaService) {
+
         this.usuarioService = usuarioService;
-        this.alunoRepository = this.alunoRepository;
-        this.docenteRepository = this.docenteRepository;
-        this.disciplinaRepository = this.disciplinaRepository;
-        this.matriculaRepository = this.matriculaRepository;
+        this.alunoRepository = alunoRepository;
+        this.docenteRepository = docenteRepository;
+        this.disciplinaRepository = disciplinaRepository;
+        this.matriculaRepository = matriculaRepository;
+        this.alunoService = alunoService;
+        this.disciplinaService = disciplinaService;
     }
 
     public Usuario efetuarLogin(String username, String senha) {
