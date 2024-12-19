@@ -6,7 +6,7 @@ import Facade.GestaoAcademicaFacade.GestaoAcademicaFacade;
 import Main.Memento.CadastroCaretaker;
 import Main.Service.*;
 import Main.Repository.*;
-import LoginFrame.LoginFrame;
+import GUI.LoginFrame.LoginFrame;
 import Main.Model.*;
 
 public class Main{
