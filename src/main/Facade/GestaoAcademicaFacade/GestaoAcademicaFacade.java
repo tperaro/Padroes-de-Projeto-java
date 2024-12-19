@@ -1,4 +1,4 @@
-package GestaoAcademicaFacade;
+package Facade.GestaoAcademicaFacade;
 
 import Main.Repository.AlunoRepository;
 import Main.Repository.DisciplinaRepository;

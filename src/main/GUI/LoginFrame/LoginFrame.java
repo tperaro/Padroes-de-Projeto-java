@@ -1,7 +1,7 @@
 package LoginFrame;
 import javax.swing.*;
 
-import GestaoAcademicaFacade.GestaoAcademicaFacade;
+import Facade.GestaoAcademicaFacade.GestaoAcademicaFacade;
 import Main.Model.Usuario;
 
 import java.awt.*;

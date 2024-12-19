@@ -1,10 +1,12 @@
 package Main;
 
 import javax.swing.*;
+
+import Facade.GestaoAcademicaFacade.GestaoAcademicaFacade;
+import Main.Memento.CadastroCaretaker;
 import Main.Service.*;
 import Main.Repository.*;
 import LoginFrame.LoginFrame;
-import GestaoAcademicaFacade.GestaoAcademicaFacade;
 import Main.Model.*;
 
 public class Main{
@@ -25,6 +27,12 @@ public class Main{
 		DisciplinaRepository disciplinaRepository = new DisciplinaRepository(arquivoDisciplinas);
     	MatriculaRepository matriculaRepository = new MatriculaRepository(arquivoMatriculas);
 
+
+
+		AlunoService alunoService = new AlunoService(alunoRepository, matriculaRepository, new CadastroCaretaker());
+		DisciplinaService disciplinaService = new DisciplinaService(disciplinaRepository, matriculaRepository, alunoService);
+
+
     	// Adiciona dados nos arquivos (apenas para garantir que os arquivos tenham dados iniciais)
     	usuarioService.salvarOuAtualizarUsuario(new Usuario("admin", "admin123", "admin"));
     	alunoRepository.salvarOuAtualizarAluno(new Aluno(1, "João Silva", "Rua Principal, 123"));
@@ -33,12 +41,14 @@ public class Main{
     	matriculaRepository.salvarOuAtualizarMatricula(new Matricula(1, 1, 1, 9.5));
 
     	// Cria o Facade com todos os serviços e repositórios
-    	GestaoAcademicaFacade facade = new GestaoAcademicaFacade(
+		GestaoAcademicaFacade facade = new GestaoAcademicaFacade(
             usuarioService,
             alunoRepository,
             docenteRepository,
             disciplinaRepository,
-            matriculaRepository);
+            matriculaRepository,
+			alunoService,
+			disciplinaService);
 
     	// Carregar dados dos arquivos
     	facade.inicializarDados();

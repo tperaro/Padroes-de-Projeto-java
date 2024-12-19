@@ -7,6 +7,8 @@ import Main.Repository.MatriculaRepository;
 import Main.Memento.AlunoMemento;
 import Main.Model.Matricula;
 
+import java.util.NoSuchElementException;
+
 public class DisciplinaService {
     private DisciplinaRepository disciplinaRepository;
     private MatriculaRepository matriculaRepository;
@@ -24,7 +26,7 @@ public class DisciplinaService {
 
     public void matricularAlunoEmDisciplina(int alunoId, int disciplinaId) {
         try {
-            Disciplina d = disciplinaRepository.buscarPorId(disciplinaId);
+            Disciplina d = disciplinaRepository.buscarPorId(disciplinaId).orElseThrow();
 
             // Se `buscarPorId` lançar NoSuchElementException, o catch irá capturar.
 
@@ -40,7 +42,7 @@ public class DisciplinaService {
     
     public void alterarNota(int alunoId, int disciplinaId, double novaNota) {
         try {
-            Disciplina d = disciplinaRepository.buscarPorId(disciplinaId);
+            Disciplina d = disciplinaRepository.buscarPorId(disciplinaId).orElseThrow();
             // Caso a disciplina não exista, NoSuchElementException será lançada e tratada pelo catch.
 
             Matricula mat = matriculaRepository.buscarPorAlunoEDisciplina(alunoId, disciplinaId);
@@ -48,9 +50,9 @@ public class DisciplinaService {
 
             // Criar Memento antes da alteração de nota
             AlunoMemento mementoAnterior = alunoService.criarMementoAluno(alunoId);
-            if (mementoAnterior != null) {
-                alunoService.getCaretaker().salvarMemento(alunoId, mementoAnterior);
-            }
+//            if (mementoAnterior != null) {
+//                alunoService.getCaretaker().salvarMemento(alunoId, mementoAnterior);
+//            }
 
             mat.setNota(novaNota);
             matriculaRepository.salvar(mat);
