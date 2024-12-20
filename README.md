@@ -1,74 +1,74 @@
-# Padroes-de-Projeto-java
+# Padrões de Projeto em Java
 
-This Java project serves as a practical study of the following design patterns: **Facade**, **Observer**, and **Memento**. It also includes aspects such as:
+Este projeto em Java serve como um estudo prático dos seguintes padrões de projeto: **Facade**, **Observer** e **Memento**. Também inclui aspectos como:
 
--   **Test Coverage:** Though not explicitly detailed in the file tree, test implementation and coverage are intended to be part of the project.
--   **Threads:** The project utilizes threads for tasks like data loading to improve performance and responsiveness.
--   **Exception Handling:** Robust exception handling is implemented throughout the application to manage runtime errors.
--   **Graphical User Interface (GUI):** A user-friendly interface is built with Swing to provide an interactive experience.
+- **Cobertura de Testes:** Embora não esteja explicitamente detalhado na árvore de arquivos, a implementação e cobertura de testes fazem parte do projeto.
+- **Threads:** O projeto utiliza threads para tarefas como carregamento de dados para melhorar o desempenho e a responsividade.
+- **Tratamento de Exceções:** Um robusto tratamento de exceções é implementado em toda a aplicação para gerenciar erros em tempo de execução.
+- **Interface Gráfica do Usuário (GUI):** Uma interface amigável construída com Swing para fornecer uma experiência interativa.
 
-## Design Patterns Implemented
+## Padrões de Projeto Implementados
 
 ### Facade
-The **Facade** pattern is implemented through the `GestaoAcademicaFacade` class. This facade simplifies the interaction with the system by providing a single entry point to perform complex tasks such as user login, student registration, course enrollment, and grade manipulation. It hides the underlying complexity of different services and repositories.
+O padrão **Facade** é implementado através da classe `GestaoAcademicaFacade`. Esta fachada simplifica a interação com o sistema fornecendo um único ponto de entrada para executar tarefas complexas como login de usuário, cadastro de alunos, matrícula em disciplinas e manipulação de notas. Ela oculta a complexidade subjacente dos diferentes serviços e repositórios.
 
 ### Observer
-The **Observer** pattern is used to notify the UI whenever a change occurs in the `Disciplina` (Subject), particularly regarding student grades. The `PainelNotasObserver` observes changes on grades. This allows the UI (or any other observer) to react to changes in real-time.
+O padrão **Observer** é usado para notificar a interface do usuário sempre que ocorre uma mudança na `Disciplina`, particularmente em relação às notas dos alunos. O `PainelNotasObserver` observa mudanças nas notas. Isso permite que a interface do usuário (ou qualquer outro observador) reaja às mudanças em tempo real.
 
 ### Memento
-The **Memento** pattern is used to keep track of the state of an `Aluno` object, allowing for undo actions. The `CadastroCaretaker` class is responsible for managing `AlunoMemento` instances, which store snapshots of an `Aluno`'s state (name, address, notes, etc.), which allow restoration.
+O padrão **Memento** é usado para manter o registro do estado de um objeto `Aluno`, permitindo ações de desfazer. A classe `CadastroCaretaker` é responsável por gerenciar instâncias de `AlunoMemento`, que armazenam instantâneos do estado de um `Aluno` (nome, endereço, notas, etc.), permitindo restauração.
 
-## Project Structure
+## Estrutura do Projeto
 
-The project is structured as follows:
+O projeto está estruturado da seguinte forma:
 
--   **.idea/**: Contains IntelliJ IDEA project settings.
--   **.settings/**: Contains Eclipse project settings.
--   **/dist/**: Contains the dependencies and distributions.
--   **/out/**: Contains compiled Java class files.
--   **/src/main/**: Contains the main Java source code:
-    -   **/Facade/**: Contains the `GestaoAcademicaFacade` class.
-    -   **/GUI/**: Contains the classes for the graphical user interface.
-        -   **/LoginFrame/**: Classes related to the login window.
-        -   **/assets/**: Images and other assets used in GUI.
-        -   **/components/**: Custom UI components like buttons and text fields.
-    -   **/Main/**: Core logic of the application.
-        -   **/Memento/**: Classes related to the Memento pattern.
-        -   **/Model/**: Data model classes such as `Aluno`, `Disciplina`, `Docente`, etc.
-        -   **/Observer/**: Classes related to the Observer pattern.
-        -   **/Repository/**: Data access layer classes for handling data persistence.
-        -   **/Service/**: Service layer classes encapsulating business logic.
--   **alunos.txt**: Text file containing student data.
--   **disciplinas.txt**: Text file containing course data.
--   **docentes.txt**: Text file containing teacher data.
--   **matriculas.txt**: Text file containing student enrollment data.
--   **usuarios.txt**: Text file containing user login data.
--   **LICENSE**: Contains the project's MIT license.
--   **README.md**: This file.
+- **.idea/**: Contém as configurações do projeto IntelliJ IDEA.
+- **.settings/**: Contém as configurações do projeto Eclipse.
+- **/dist/**: Contém as dependências e distribuições.
+- **/out/**: Contém os arquivos de classe Java compilados.
+- **/src/main/**: Contém o código-fonte principal em Java:
+  - **/Facade/**: Contém a classe `GestaoAcademicaFacade`.
+  - **/GUI/**: Contém as classes para a interface gráfica do usuário.
+    - **/LoginFrame/**: Classes relacionadas à janela de login.
+    - **/assets/**: Imagens e outros recursos usados na GUI.
+    - **/components/**: Componentes personalizados da UI como botões e campos de texto.
+  - **/Main/**: Lógica principal da aplicação.
+    - **/Memento/**: Classes relacionadas ao padrão Memento.
+    - **/Model/**: Classes de modelo de dados como `Aluno`, `Disciplina`, `Docente`, etc.
+    - **/Observer/**: Classes relacionadas ao padrão Observer.
+    - **/Repository/**: Classes da camada de acesso a dados para manipulação de persistência.
+    - **/Service/**: Classes da camada de serviço encapsulando lógica de negócios.
+- **alunos.txt**: Arquivo de texto contendo dados dos alunos.
+- **disciplinas.txt**: Arquivo de texto contendo dados das disciplinas.
+- **docentes.txt**: Arquivo de texto contendo dados dos professores.
+- **matriculas.txt**: Arquivo de texto contendo dados de matrículas dos alunos.
+- **usuarios.txt**: Arquivo de texto contendo dados de login dos usuários.
+- **LICENSE**: Contém a licença MIT do projeto.
+- **README.md**: Este arquivo.
 
-## Key Features
+## Funcionalidades Principais
 
--   **Login Functionality:** The application offers user authentication with different user types (`CoordenacaoUser` or `UsuarioSystem`).
--   **Student Management:** Features to add, update and restore student information using the Memento Pattern.
--   **Course Enrollment:** Capability to enroll students in courses and record grades.
--   **Data Loading:** Data is loaded from text files using Java's I/O classes, with multithreading for concurrent data loading and UI setup.
--   **GUI:** A graphical user interface built with Swing components.
+- **Funcionalidade de Login:** A aplicação oferece autenticação de usuário com diferentes tipos de usuário (`CoordenacaoUser` ou `UsuarioSystem`).
+- **Gestão de Alunos:** Recursos para adicionar, atualizar e restaurar informações de alunos usando o Padrão Memento.
+- **Matrícula em Disciplinas:** Capacidade de matricular alunos em disciplinas e registrar notas.
+- **Carregamento de Dados:** Os dados são carregados de arquivos de texto usando as classes de E/S do Java, com multithreading para carregamento concorrente de dados e configuração da UI.
+- **GUI:** Uma interface gráfica construída com componentes Swing.
 
-## How to Run
+## Como Executar
 
-1.  Clone this repository.
-2.  Import the project into your IDE of choice (e.g., IntelliJ IDEA, Eclipse).
-3.  Ensure you have a Java Development Kit (JDK) version 17 or higher installed.
-4.  Build and run the `Main.java` file located in the `/src/main/Main/` directory.
-5.  The login window will appear where you can log in with the default admin user with `admin` as username and `admin123` as password. You'll need to select the user type from the dropdown menu.
+1. Clone este repositório.
+2. Importe o projeto para sua IDE de preferência (ex: IntelliJ IDEA, Eclipse).
+3. Certifique-se de ter o Java Development Kit (JDK) versão 17 ou superior instalado.
+4. Compile e execute o arquivo `Main.java` localizado no diretório `/src/main/Main/`.
+5. A janela de login aparecerá onde você pode entrar com o usuário admin padrão com `admin` como nome de usuário e `admin123` como senha. Você precisará selecionar o tipo de usuário no menu suspenso.
 
-## Note about the Data Layer
-The data layer is implemented using text files for persistence. This was done with educational purposes in mind for this project. The data layer might be replaced with a database layer for larger scale applications.
+## Nota sobre a Camada de Dados
+A camada de dados é implementada usando arquivos de texto para persistência. Isso foi feito tendo em mente propósitos educacionais para este projeto. A camada de dados pode ser substituída por uma camada de banco de dados para aplicações em maior escala.
 
-## Disclaimer
+## Aviso
 
-This project is intended for educational purposes and to explore the application of design patterns.
+Este projeto é destinado a fins educacionais e para explorar a aplicação de padrões de projeto.
 
-## License
+## Licença
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
