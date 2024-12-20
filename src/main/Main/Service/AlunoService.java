@@ -21,19 +21,19 @@ public class AlunoService {
     }
 
     public int cadastrarAluno(String nome, String endereco) {
-        // Validações simples
+        //validações simples
         if (nome == null || nome.isBlank() || endereco == null || endereco.isBlank()) {
             throw new IllegalArgumentException("Nome ou endereço inválidos");
         }
 
-        // Criar objeto Aluno (ID pode ser gerado pelo repositorio ou manualmente)
+        //criar objeto Aluno (ID pode ser gerado pelo repositorio ou manualmente)
         int novoId = alunoRepository.gerarNovoId();
         Aluno aluno = new Aluno(novoId, nome, endereco);
 
-        // Salvar aluno no repositório (arquivo)
+        //salvar aluno no repositório (arquivo)
         alunoRepository.salvarOuAtualizarAluno(aluno);
 
-        // Criar Memento inicial do estado do aluno (no momento sem notas)
+        //criar Memento inicial do estado do aluno (no momento sem notas)
         Map<Integer, Double> notasVazias = new HashMap<>();
         AlunoMemento m = new AlunoMemento(nome, endereco, notasVazias);
         caretaker.salvarMemento(novoId, m);
@@ -44,7 +44,7 @@ public class AlunoService {
     public void restaurarUltimoEstadoAluno(int alunoId) {
         AlunoMemento m = caretaker.restaurarMemento(alunoId);
         if (m != null) {
-            // Restaurar o estado do aluno
+            //restaurar o estado do aluno
             Aluno aluno = alunoRepository.buscarPorId(alunoId);
             if (aluno != null) {
                 aluno.setNome(m.getNome());
@@ -62,7 +62,7 @@ public class AlunoService {
         Aluno aluno = alunoRepository.buscarPorId(alunoId);
         if (aluno == null) return null;
 
-        // Capturar as notas atuais do aluno:
+        // capturar as notas atuais do aluno:
         Map<Integer, Double> notasAtuais = matriculaRepository.obterNotasDoAluno(alunoId);
 
         return new AlunoMemento(aluno.getNome(), aluno.getEndereco(), notasAtuais);
