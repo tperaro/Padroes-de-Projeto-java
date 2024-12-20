@@ -1,5 +1,12 @@
 # Padrões de Projeto em Java
 
+Autores:
+Thiago de Jesus Peraro - 201904260 - peraro.thiago@discente.ufg.br
+Lucas Santos Soares - 202307089 - lucas_santos23@discente.ufg.br
+João Vitor Borges Tavares - 202307400 - joao2345678@discente.ufg.br
+
+user e senha programados no arquivo : admin   admin123
+
 Este projeto em Java serve como um estudo prático dos seguintes padrões de projeto: **Facade**, **Observer** e **Memento**. Também inclui aspectos como:
 
 - **Cobertura de Testes:** Embora não esteja explicitamente detalhado na árvore de arquivos, a implementação e cobertura de testes fazem parte do projeto.
