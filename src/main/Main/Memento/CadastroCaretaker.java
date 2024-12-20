@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Stack;
 
 public class CadastroCaretaker {
-    // Mantém um histórico de Mementos para cada Aluno (usando id do aluno como chave)
+    //Mantém um histórico de Mementos para cada Aluno (usando id do aluno como chave)
     private Map<Integer, Stack<AlunoMemento>> historico = new HashMap<>();
 
     public void salvarMemento(int alunoId, AlunoMemento m) {

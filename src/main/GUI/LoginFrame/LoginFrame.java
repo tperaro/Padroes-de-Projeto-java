@@ -42,13 +42,13 @@ public class LoginFrame extends JFrame {
         JButton historicoButton = new JButton("Consultar Histórico");
         JButton materiasButton = new JButton("Acessar Matérias");
 
-        // Adicionando os botões ao painel
+        //Adicionando os botões ao painel
         panel.add(boletimButton);
         panel.add(matriculaButton);
         panel.add(historicoButton);
         panel.add(materiasButton);
 
-        // Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
+        //Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
         boletimButton.addActionListener(e -> JOptionPane.showMessageDialog(discenteFrame, "Acessando boletim..."));
         matriculaButton.addActionListener(e -> JOptionPane.showMessageDialog(discenteFrame, "Solicitando matrícula..."));
         historicoButton.addActionListener(e -> JOptionPane.showMessageDialog(discenteFrame, "Consultando histórico..."));
@@ -72,14 +72,14 @@ public class LoginFrame extends JFrame {
         JButton frequenciaButton = new JButton("Frequência");
         JButton avisosButton = new JButton("Avisos");
 
-        // Adicionando os botões ao painel
+        //Adicionando os botões ao painel
         panel.add(notasButton);
         panel.add(consultarDadosButton);
         panel.add(conteudosButton);
         panel.add(frequenciaButton);
         panel.add(avisosButton);
 
-        // Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
+        //Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
         notasButton.addActionListener(e -> JOptionPane.showMessageDialog(docenteFrame, "Acessando notas..."));
         consultarDadosButton.addActionListener(e -> JOptionPane.showMessageDialog(docenteFrame, "Consultando dados..."));
         conteudosButton.addActionListener(e -> JOptionPane.showMessageDialog(docenteFrame, "Acessando conteúdos..."));
@@ -106,7 +106,7 @@ public class LoginFrame extends JFrame {
         jTable1 = new JTable();
         jButton1 = new JButton();
         header1 = new Header();
-        // Add warning label
+
         warningLabel = new JLabel("TODO: REMOVER ESSA SELEÇÃO APÓS IMPLEMENTAR A LÓGICA CORRETA DE LOGIN");
         warningLabel.setForeground(Color.YELLOW);
         warningLabel.setHorizontalAlignment(SwingConstants.CENTER);

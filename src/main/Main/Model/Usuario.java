@@ -3,7 +3,7 @@ package Main.Model;
 public class Usuario {
     private String username;
     private String senha;
-    private String tipo; // Ex: "COORDENACAO", "SECRETARIA", "DOCENTE"
+    private String tipo; //Ex: "COORDENACAO", "SECRETARIA", "DOCENTE"
 
     public Usuario(String username, String senha, String tipo) {
         this.username = username;

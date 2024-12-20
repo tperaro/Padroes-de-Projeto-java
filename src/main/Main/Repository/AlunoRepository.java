@@ -15,12 +15,12 @@ public class AlunoRepository {
         carregarDados();
     }
 
-    // Carregar alunos do arquivo
+    //Carregar alunos do arquivo
     public void carregarDados() {
         alunos.clear();
         File arquivo = new File(arquivoAlunos);
 
-        // Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
+        //Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
         if (!arquivo.exists()) {
             try {
                 if (arquivo.createNewFile()) {
@@ -28,11 +28,11 @@ public class AlunoRepository {
                 }
             } catch (IOException e) {
                 System.err.println("Erro ao criar o arquivo: " + e.getMessage());
-                return; // Interrompe a execução, já que o arquivo não pôde ser criado
+                return; //Interrompe a execução, já que o arquivo não pôde ser criado
             }
         }
 
-        // Carrega os dados do arquivo existente
+        //Carrega os dados do arquivo existente
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoAlunos))) {
             String linha;
             while ((linha = br.readLine()) != null) {
@@ -50,7 +50,7 @@ public class AlunoRepository {
         }
     }
 
- // Salvar todos os alunos no arquivo
+ //Salvar todos os alunos no arquivo
     public void salvarDados() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoAlunos))) {
             for (Aluno aluno : alunos) {
@@ -62,26 +62,26 @@ public class AlunoRepository {
         }
     }
 
-    // Adicionar ou atualizar um aluno
+    //Adicionar ou atualizar um aluno
     public void salvarOuAtualizarAluno(Aluno aluno) {
         Aluno existente = buscarPorId(aluno.getId());
         if (existente != null) {
-            // Atualiza aluno existente
+            //Atualiza aluno existente
             existente.setNome(aluno.getNome());
             existente.setEndereco(aluno.getEndereco());
         } else {
-            // Adiciona novo aluno
+            //Adiciona novo aluno
             alunos.add(aluno);
         }
         salvarDados();
     }
 
-    // Buscar todos os alunos
+    //Buscar todos os alunos
     public List<Aluno> getAlunos() {
-        return new ArrayList<>(alunos); // Retorna uma cópia para evitar modificações diretas
+        return new ArrayList<>(alunos); //Retorna uma cópia para evitar modificações diretas
     }
 
-    // Buscar aluno por ID
+    //Buscar aluno por ID
     public Aluno buscarPorId(int id) {
         for (Aluno a : alunos) {
             if (a.getId() == id) {
@@ -91,7 +91,7 @@ public class AlunoRepository {
         return null;
     }
 
-    // Gerar novo ID único
+    //Gerar novo ID único
     public int gerarNovoId() {
         int maxId = 0;
         for (Aluno aluno : alunos) {

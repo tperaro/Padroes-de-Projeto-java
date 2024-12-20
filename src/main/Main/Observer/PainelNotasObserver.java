@@ -8,7 +8,7 @@ public class PainelNotasObserver implements Observer {
         if (subject instanceof Disciplina) {
             Disciplina d = (Disciplina) subject;
             System.out.println("PainelNotasObserver: Notas da disciplina " + d.getNome() + " foram atualizadas!");
-            // Aqui no futuro atualizaríamos o JTable na GUI, por exemplo
+            //Aqui no futuro atualizaríamos o JTable na GUI, por exemplo
         }
     }
 }

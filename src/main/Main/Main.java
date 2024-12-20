@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 
 public class Main{
 	public static void main(String[] args) {
-		// Arquivos de dados (ajuste os caminhos conforme sua estrutura)
+		//Arquivos de dados (ajuste os caminhos conforme sua estrutura)
 		String arquivoUsuarios = "usuarios.txt";
 		String arquivoAlunos = "alunos.txt";
 		String arquivoDocentes = "docentes.txt";
@@ -23,7 +23,7 @@ public class Main{
 
 		ExecutorService executor = Executors.newFixedThreadPool(4);
 
-		// Criação dos repositórios
+		//Criação dos repositórios
 		UsuarioRepository usuarioRepository = new UsuarioRepository(arquivoUsuarios);
 		UsuarioService usuarioService = new UsuarioService(usuarioRepository);
 
@@ -31,21 +31,18 @@ public class Main{
 		DocenteRepository docenteRepository = new DocenteRepository(arquivoDocentes);
 		DisciplinaRepository disciplinaRepository = new DisciplinaRepository(arquivoDisciplinas);
     	MatriculaRepository matriculaRepository = new MatriculaRepository(arquivoMatriculas);
-
-
-
 		AlunoService alunoService = new AlunoService(alunoRepository, matriculaRepository, new CadastroCaretaker());
 		DisciplinaService disciplinaService = new DisciplinaService(disciplinaRepository, matriculaRepository, alunoService);
 
 
-    	// Adiciona dados nos arquivos (apenas para garantir que os arquivos tenham dados iniciais)
+    	//Adiciona dados nos arquivos (apenas para garantir que os arquivos tenham dados iniciais)
     	usuarioService.salvarOuAtualizarUsuario(new Usuario("admin", "admin123", "admin"));
     	alunoRepository.salvarOuAtualizarAluno(new Aluno(1, "João Silva", "Rua Principal, 123"));
     	docenteRepository.salvarOuAtualizarDocente(new Docente(1, "Dra. Maria", "Matemática"));
     	disciplinaRepository.salvarOuAtualizarDisciplina(new Disciplina(1, "Cálculo I", 60));
     	matriculaRepository.salvarOuAtualizarMatricula(new Matricula(1, 1, 1, 9.5));
 
-    	// Cria o Facade com todos os serviços e repositórios
+    	//Cria o Facade com todos os serviços e repositórios
 		GestaoAcademicaFacade facade = new GestaoAcademicaFacade(
             usuarioService,
             alunoRepository,
@@ -54,7 +51,7 @@ public class Main{
             matriculaRepository,
 			alunoService,
 			disciplinaService);
-		// Carregar dados dos arquivos em uma thread separada
+		//Carregar dados dos arquivos em uma thread separada
 		executor.submit(() -> {
 			facade.inicializarDados();
 			SwingUtilities.invokeLater(() -> {
@@ -65,8 +62,5 @@ public class Main{
 
 		executor.shutdown();
 
-
-    	// Exemplo: Após carregar, você pode listar os alunos como teste
-    	// System.out.println("Alunos Carregados: " + alunoRepository.getAlunos().size());
 	}
 }
