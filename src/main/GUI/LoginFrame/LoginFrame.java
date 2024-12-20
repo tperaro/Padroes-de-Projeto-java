@@ -15,7 +15,7 @@ import GUI.components.*;
 
 public class LoginFrame extends JFrame {
     private JComboBox<String> userTypeComboBox;
-    private JLabel warningLabel;
+
     private GestaoAcademicaFacade facade;
 
     public LoginFrame(GestaoAcademicaFacade facade) {
@@ -42,13 +42,13 @@ public class LoginFrame extends JFrame {
         JButton historicoButton = new JButton("Consultar Histórico");
         JButton materiasButton = new JButton("Acessar Matérias");
 
-        // Adicionando os botões ao painel
+        //Adicionando os botões ao painel
         panel.add(boletimButton);
         panel.add(matriculaButton);
         panel.add(historicoButton);
         panel.add(materiasButton);
 
-        // Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
+        //Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
         boletimButton.addActionListener(e -> JOptionPane.showMessageDialog(discenteFrame, "Acessando boletim..."));
         matriculaButton.addActionListener(e -> JOptionPane.showMessageDialog(discenteFrame, "Solicitando matrícula..."));
         historicoButton.addActionListener(e -> JOptionPane.showMessageDialog(discenteFrame, "Consultando histórico..."));
@@ -72,14 +72,14 @@ public class LoginFrame extends JFrame {
         JButton frequenciaButton = new JButton("Frequência");
         JButton avisosButton = new JButton("Avisos");
 
-        // Adicionando os botões ao painel
+        //Adicionando os botões ao painel
         panel.add(notasButton);
         panel.add(consultarDadosButton);
         panel.add(conteudosButton);
         panel.add(frequenciaButton);
         panel.add(avisosButton);
 
-        // Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
+        //Adicionando ações aos botões (você pode implementar as funcionalidades aqui)
         notasButton.addActionListener(e -> JOptionPane.showMessageDialog(docenteFrame, "Acessando notas..."));
         consultarDadosButton.addActionListener(e -> JOptionPane.showMessageDialog(docenteFrame, "Consultando dados..."));
         conteudosButton.addActionListener(e -> JOptionPane.showMessageDialog(docenteFrame, "Acessando conteúdos..."));
@@ -106,11 +106,8 @@ public class LoginFrame extends JFrame {
         jTable1 = new JTable();
         jButton1 = new JButton();
         header1 = new Header();
-        // Add warning label
-        warningLabel = new JLabel("TODO: REMOVER ESSA SELEÇÃO APÓS IMPLEMENTAR A LÓGICA CORRETA DE LOGIN");
-        warningLabel.setForeground(Color.YELLOW);
-        warningLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        warningLabel.setFont(warningLabel.getFont().deriveFont(Font.BOLD));
+
+
         userTypeComboBox = new JComboBox<>(new String[]{"Docente", "Discente"});
         userTypeComboBox.setBackground(new Color(245, 245, 245));
         userTypeComboBox.setForeground(new Color(100, 100, 100));
@@ -156,7 +153,6 @@ public class LoginFrame extends JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(warningLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(userTypeComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cmdSignIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
@@ -172,7 +168,6 @@ public class LoginFrame extends JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(warningLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(userTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)

@@ -22,9 +22,6 @@ public class UsuarioService {
     /**
      * Salva ou atualiza um único usuário no arquivo.
      */
-    /**
-     * Salva ou atualiza um único usuário no arquivo.
-     */
 
     public Usuario login(String username, String senhaDigitada) {
         String[] dados = usuarioRepository.buscarPorUsername(username);
@@ -43,8 +40,12 @@ public class UsuarioService {
         }
         return null;
     }
+    
+    /**
+     * Salva ou atualiza um único usuário no arquivo.
+     */
     public void salvarOuAtualizarUsuario(Usuario usuario) {
-        // Passa o objeto Usuario diretamente para o repositório
+        //Passa o objeto Usuario diretamente para o repositório
         usuarioRepository.salvarOuAtualizarUsuario(usuario);
     }
 

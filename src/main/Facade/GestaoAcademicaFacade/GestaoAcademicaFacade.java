@@ -60,5 +60,6 @@ public class GestaoAcademicaFacade {
         matriculaRepository.carregarDados();
     }
 
-    //No futuro, métodos para acessar dados carregados, cadastrar novos registros, etc.
+    //No futuro, métodos para acessar dados carregados, cadastrar novos registros, dentre outros que aplicam melhor .
+    //o poder total do facade com interfaces e mistura de subserviços
 }

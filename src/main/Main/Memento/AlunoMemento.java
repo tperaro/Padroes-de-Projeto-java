@@ -6,7 +6,7 @@ public class AlunoMemento {
     private String nome;
     private String endereco;
     private Map<Integer, Double> notasSnapshot;
-    // Map<DisciplinaId, Nota> para capturar o estado atual das notas do aluno.
+    //Map<DisciplinaId, Nota> para capturar o estado atual das notas do aluno.
 
     public AlunoMemento(String nome, String endereco, Map<Integer, Double> notasSnapshot) {
         this.nome = nome;
