@@ -6,7 +6,7 @@
         private String nome;
         private int docenteResponsavelId;
 
-        // Propriedades adicionais
+        //Propriedades adicionais
         private String descricao;
         private String horario;
         private int capacidadeMaxima;
@@ -42,18 +42,18 @@
             return capacidadeMaxima;
         }
         
-     // Notificar observadores (supondo que existe um mecanismo de Observer já configurado)
+     //Notificar observadores (supondo que existe um mecanismo de Observer já configurado)
         public void notificarObservadores() {
-            // Implementa a lógica para notificar observadores associados à disciplina
-            // Exemplo genérico:
+            //Implementa a lógica para notificar observadores associados à disciplina
+            //Exemplo genérico:
             System.out.println("Observadores da disciplina " + nome + " foram notificados.");
         }
 
-        // Salvar memento do aluno (requer que a estrutura de caretaker e memento esteja integrada)
+        //Salvar memento do aluno (requer que a estrutura de caretaker e memento esteja integrada)
        
-        // Método put para adicionar ou atualizar propriedades da disciplina
+        //Método put para adicionar ou atualizar propriedades da disciplina
    
-        // Método para exibir os detalhes da disciplina
+        //Método para exibir os detalhes da disciplina
         @Override
         public String toString() {
             return "Disciplina{" +

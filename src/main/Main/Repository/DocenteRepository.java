@@ -19,7 +19,7 @@ public class DocenteRepository {
         docentes.clear();
         File arquivo = new File(arquivoDocentes);
 
-        // Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
+        //Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
         if (!arquivo.exists()) {
             try {
                 if (arquivo.createNewFile()) {
@@ -27,11 +27,11 @@ public class DocenteRepository {
                 }
             } catch (IOException e) {
                 System.err.println("Erro ao criar o arquivo: " + e.getMessage());
-                return; // Interrompe a execução, já que o arquivo não pôde ser criado
+                return; //Interrompe a execução, já que o arquivo não pôde ser criado
             }
         }
 
-        // Carrega os dados do arquivo existente
+        //Carrega os dados do arquivo existente
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoDocentes))) {
             String linha;
             while ((linha = br.readLine()) != null) {
@@ -49,7 +49,7 @@ public class DocenteRepository {
         }
     }
     
- // Salvar todos os docentes no arquivo
+ //Salvar todos os docentes no arquivo
     public void salvarDados() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoDocentes))) {
             for (Docente docente : docentes) {
@@ -61,15 +61,15 @@ public class DocenteRepository {
         }
     }
 
-    // Adicionar ou atualizar um docente
+    //Adicionar ou atualizar um docente
     public void salvarOuAtualizarDocente(Docente docente) {
         Docente existente = buscarPorId(docente.getId());
         if (existente != null) {
-            // Atualiza docente existente
+            //Atualiza docente existente
             existente.setNome(docente.getNome());
             existente.setEspecialidade(docente.getEspecialidade());
         } else {
-            // Adiciona novo docente
+            //Adiciona novo docente
             docentes.add(docente);
         }
         salvarDados();

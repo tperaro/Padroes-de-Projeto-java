@@ -3,7 +3,7 @@ package Main.Model;
 public class Usuario {
     private String username;
     private String senha;
-    private String tipo; // Ex: "COORDENACAO", "SECRETARIA", "DOCENTE"
+    private String tipo;
 
     public Usuario(String username, String senha, String tipo) {
         this.username = username;
@@ -22,7 +22,6 @@ public class Usuario {
         return tipo;
     }
 	public void setSenha(String senha) {
-		// TODO Auto-generated method stub
 		this.senha = senha;
 		
 	}

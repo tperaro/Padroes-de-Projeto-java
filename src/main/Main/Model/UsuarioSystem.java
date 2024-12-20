@@ -5,5 +5,5 @@ public class UsuarioSystem extends Usuario {
         super(username, senha, tipo);
     }
 
-    // Usuário genérico do sistema (por exemplo SECRETARIA ou DOCENTE)
+    //Discente ou Docente
 }

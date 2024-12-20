@@ -24,7 +24,6 @@ public class Docente {
     }
 
 	public void setNome(String nome) {
-		// TODO Auto-generated method stub
 		this.nome = nome;
 	}
 	

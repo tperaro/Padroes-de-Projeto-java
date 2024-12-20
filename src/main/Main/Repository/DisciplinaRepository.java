@@ -18,21 +18,21 @@ public class DisciplinaRepository {
             throw new IllegalArgumentException("Caminho do arquivo não pode ser nulo ou vazio");
         }
         this.disciplinas = new ArrayList<>();
-        // Convert the string path to an absolute, normalized path
+        //Converte a string para um padrão de caminho absoluto e normaliza ele
         this.arquivoDisciplinas = new File(arquivoDisciplinas).toPath().normalize().toAbsolutePath();
         inicializarArquivo();
     }
 
     private void inicializarArquivo() {
         try {
-            // First ensure parent directory exists
+            //Garante que o repositorio pai existe
             Path parentDir = arquivoDisciplinas.getParent();
             if (parentDir != null && !Files.exists(parentDir)) {
                 Files.createDirectories(parentDir);
                 LOGGER.info("Diretório criado: " + parentDir);
             }
 
-            // Then create the file if it doesn't exist
+            //Criar um arquivo caso nao exista
             if (!Files.exists(arquivoDisciplinas)) {
                 Files.createFile(arquivoDisciplinas);
                 LOGGER.info("Arquivo de disciplinas criado: " + arquivoDisciplinas);

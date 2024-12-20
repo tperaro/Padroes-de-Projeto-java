@@ -17,7 +17,7 @@ public class MatriculaRepository {
         carregarDados();
     }
     
- // Salvar todas as matrículas no arquivo
+ //Salvar todas as matrículas no arquivo
     public void salvarDados() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoMatriculas))) {
             for (Matricula matricula : matriculas) {
@@ -30,16 +30,16 @@ public class MatriculaRepository {
         }
     }
 
-    // Adicionar ou atualizar uma matrícula
+    //Adicionar ou atualizar uma matrícula
     public void salvarOuAtualizarMatricula(Matricula matricula) {
         Matricula existente = buscarPorId(matricula.getId());
         if (existente != null) {
-            // Atualiza matrícula existente
+            //Atualiza matrícula existente
             existente.setAlunoId(matricula.getAlunoId());
             existente.setDisciplinaId(matricula.getDisciplinaId());
             existente.setNota(matricula.getNota());
         } else {
-            // Adiciona nova matrícula
+            //Adiciona nova matrícula
             matriculas.add(matricula);
         }
         salvarDados();
@@ -50,7 +50,7 @@ public class MatriculaRepository {
         matriculas.clear();
         File arquivo = new File(arquivoMatriculas);
 
-        // Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
+        //Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
         if (!arquivo.exists()) {
             try {
                 if (arquivo.createNewFile()) {
@@ -62,7 +62,7 @@ public class MatriculaRepository {
             }
         }
 
-        // Carrega os dados do arquivo existente
+        //Carrega os dados do arquivo existente
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoMatriculas))) {
             String linha;
             while ((linha = br.readLine()) != null) {
@@ -113,7 +113,7 @@ public class MatriculaRepository {
         return maiorId + 1;
     }
 
-    // Método para salvar uma nova matrícula
+    //Método para salvar uma nova matrícula
     public void salvar(Matricula matricula) {
         matriculas.add(matricula);
         salvarDados();

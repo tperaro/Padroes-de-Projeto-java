@@ -45,7 +45,7 @@ public class UsuarioService {
      * Salva ou atualiza um único usuário no arquivo.
      */
     public void salvarOuAtualizarUsuario(Usuario usuario) {
-        // Passa o objeto Usuario diretamente para o repositório
+        //Passa o objeto Usuario diretamente para o repositório
         usuarioRepository.salvarOuAtualizarUsuario(usuario);
     }
 

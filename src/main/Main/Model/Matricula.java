@@ -30,7 +30,6 @@ public class Matricula {
     }
 
 	public void setAlunoId(int alunoId) {
-		// TODO Auto-generated method stub
 		this.alunoId = alunoId;
 	}
 	

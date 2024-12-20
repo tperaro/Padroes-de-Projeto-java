@@ -17,7 +17,7 @@ public class UsuarioRepository {
      * Retorna um array contendo todos os usuários encontrados no arquivo.
      */
     
- // Salvar todos os usuários no arquivo
+ //Salvar todos os usuários no arquivo
     public void salvarDados(List<Usuario> usuarios) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoUsuarios))) {
             for (Usuario usuario : usuarios) {
@@ -29,7 +29,7 @@ public class UsuarioRepository {
         }
     }
 
-    // Adicionar ou atualizar um usuário
+    //Adicionar ou atualizar um usuário
     public void salvarOuAtualizarUsuario(Usuario usuario) {
         List<Usuario> usuarios = new ArrayList<>(List.of(getUsuarios()));
         boolean encontrado = false;
@@ -54,7 +54,7 @@ public class UsuarioRepository {
         List<Usuario> listaUsuarios = new ArrayList<>();
         File arquivo = new File(arquivoUsuarios);
 
-        // Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
+        //Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
         if (!arquivo.exists()) {
             try {
                 if (arquivo.createNewFile()) {
@@ -62,7 +62,7 @@ public class UsuarioRepository {
                 }
             } catch (IOException e) {
                 System.err.println("Erro ao criar o arquivo: " + e.getMessage());
-                return new Usuario[0]; // Retorna um array vazio caso o arquivo não seja criado
+                return new Usuario[0]; //Retorna um array vazio caso o arquivo não seja criado
             }
         }
 
@@ -75,7 +75,7 @@ public class UsuarioRepository {
                     String senha = parts[1].trim();
                     String tipo = parts[2].trim();
 
-                    // Cria o objeto Usuario e adiciona na lista
+                    //Cria o objeto Usuario e adiciona na lista
                     listaUsuarios.add(new Usuario(username, senha, tipo));
                 }
             }
@@ -83,7 +83,7 @@ public class UsuarioRepository {
             System.err.println("Erro ao carregar dados do arquivo: " + e.getMessage());
         }
 
-        // Converte a lista em um array e retorna
+        //Converte a lista em um array e retorna
         return listaUsuarios.toArray(new Usuario[0]);
     }
 
@@ -94,7 +94,7 @@ public class UsuarioRepository {
     public String[] buscarPorUsername(String username) {
         File arquivo = new File(arquivoUsuarios);
 
-        // Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
+        //Verifica se o arquivo existe; caso contrário, cria um arquivo vazio
         if (!arquivo.exists()) {
             try {
                 if (arquivo.createNewFile()) {
@@ -102,7 +102,7 @@ public class UsuarioRepository {
                 }
             } catch (IOException e) {
                 System.err.println("Erro ao criar o arquivo: " + e.getMessage());
-                return null; // Retorna null caso o arquivo não seja criado
+                return null; //Retorna null caso o arquivo não seja criado
             }
         }
 

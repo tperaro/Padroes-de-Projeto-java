@@ -28,7 +28,7 @@ public class DisciplinaService {
         try {
             Disciplina d = disciplinaRepository.buscarPorId(disciplinaId).orElseThrow();
 
-            // Se `buscarPorId` lançar NoSuchElementException, o catch irá capturar.
+            //Se `buscarPorId` lançar NoSuchElementException, o catch irá capturar.
 
             int novaMatriculaId = matriculaRepository.gerarNovoId();
             Matricula m = new Matricula(novaMatriculaId, alunoId, disciplinaId, 0.0);
@@ -43,12 +43,12 @@ public class DisciplinaService {
     public void alterarNota(int alunoId, int disciplinaId, double novaNota) {
         try {
             Disciplina d = disciplinaRepository.buscarPorId(disciplinaId).orElseThrow();
-            // Caso a disciplina não exista, NoSuchElementException será lançada e tratada pelo catch.
+            //Caso a disciplina não exista, NoSuchElementException será lançada e tratada pelo catch.
 
             Matricula mat = matriculaRepository.buscarPorAlunoEDisciplina(alunoId, disciplinaId);
-            // Caso a matrícula não exista, NoSuchElementException será lançada e tratada pelo catch.
+            //Caso a matrícula não exista, NoSuchElementException será lançada e tratada pelo catch.
 
-            // Criar Memento antes da alteração de nota
+            //Criar Memento antes da alteração de nota
             AlunoMemento mementoAnterior = alunoService.criarMementoAluno(alunoId);
 //            if (mementoAnterior != null) {
 //                alunoService.getCaretaker().salvarMemento(alunoId, mementoAnterior);
