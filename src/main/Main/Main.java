@@ -9,6 +9,9 @@ import Main.Repository.*;
 import GUI.LoginFrame.LoginFrame;
 import Main.Model.*;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Main{
 	public static void main(String[] args) {
 		// Arquivos de dados (ajuste os caminhos conforme sua estrutura)
@@ -17,6 +20,8 @@ public class Main{
 		String arquivoDocentes = "docentes.txt";
 		String arquivoDisciplinas = "disciplinas.txt";
 		String arquivoMatriculas = "matriculas.txt";
+
+		ExecutorService executor = Executors.newFixedThreadPool(4);
 
 		// Criação dos repositórios
 		UsuarioRepository usuarioRepository = new UsuarioRepository(arquivoUsuarios);
@@ -49,17 +54,19 @@ public class Main{
             matriculaRepository,
 			alunoService,
 			disciplinaService);
+		// Carregar dados dos arquivos em uma thread separada
+		executor.submit(() -> {
+			facade.inicializarDados();
+			SwingUtilities.invokeLater(() -> {
+				LoginFrame loginFrame = new LoginFrame(facade);
+				loginFrame.setVisible(true);
+			});
+		});
 
-    	// Carregar dados dos arquivos
-    	facade.inicializarDados();
+		executor.shutdown();
+
 
     	// Exemplo: Após carregar, você pode listar os alunos como teste
     	// System.out.println("Alunos Carregados: " + alunoRepository.getAlunos().size());
-
-    	// Agora inicia a UI de login (da etapa 1)
-    	SwingUtilities.invokeLater(() -> {
-    		LoginFrame loginFrame = new LoginFrame(facade);
-    		loginFrame.setVisible(true);
-    	});
 	}
 }
